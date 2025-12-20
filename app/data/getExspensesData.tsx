@@ -15,6 +15,7 @@ import { auth } from "../config/firebase";
 import { where } from "firebase/firestore";
 import { deleteDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
+import { waitForPendingWrites } from "firebase/firestore";
 export default function GetExspensesData(){
 const context = useContext(MoneyContext)
 const current =  auth.currentUser
@@ -31,41 +32,46 @@ const { sumExspense, setSumExspense } = context
  console.error(err)
   }
 }
+
  const [sumExspenses, setSumExspenses] = useState(0)
   const [dataExspensesAmount , setDataExspensesAmount] = useState<ExspensesTSX[]>([]) 
     const [dataHTMLExspensesAmount , setDataHTMLExspensesAmount] = useState<HTMLElement[]>([]) 
   useEffect(()=>{
     const getData = async() =>{
          try{
-          
- if(current){
-     const uid = auth.currentUser?.uid
-     const currentCollection = query(collection(db, 'exspenses'), where("userId" , "==" , uid))
+               await waitForPendingWrites(db);
+
+  if(!auth.currentUser) return 0 
+     const uid = auth.currentUser.uid
+     localStorage.setItem("uid", uid)
+     const currentCollection = query(collection(db, 'exspenses'), where("userId" , "==" , localStorage.getItem("uid")))
      const data = await getDocs(currentCollection)
      const exspenses: ExspensesTSX[] = [] 
      const sumExspenses: number[] = [] 
      const readyData = data.docs
-     console.log(readyData)
+
      
      readyData.map((el)=>{ 
       const data = el.data() as ExspensesTSX
       const HTMLData = {
         ...data,
+        idProps: el.id,
         userId: uid
       } 
       exspenses.push(HTMLData as ExspensesTSX)
       sumExspenses.push(HTMLData['amount'] as number)
-      console.log(HTMLData)
+  
       const HTMLDataAmount = HTMLData['amount']
       setSumExspenses(sumExspenses.reduce((acc, cur)=>(acc+cur)))
       setSumExspense(sumExspenses.reduce((acc, cur)=>(acc+cur)))
       setDataExspensesAmount(exspenses as ExspensesTSX[])
-      console.log(HTMLData)
+ 
      
-     })}
+     })
 
          }
          catch(err){
+          await waitForPendingWrites(db)
 console.error(err)
          }
   }
@@ -75,12 +81,11 @@ console.error(err)
   return(
     <>
    
-<div>
+<div className="max-h-full ">
   {dataExspensesAmount.map((el, index)=>(
-    <>
-   <ExspensesProps key = {index} exspenses = {el} id = {String(el.id)}/>
+    
+   <ExspensesProps key = {index} exspenses = {el} idProps = {el.idProps}/>
 
-   </>
   ))}
 </div>
     </>

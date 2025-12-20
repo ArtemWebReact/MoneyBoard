@@ -2,22 +2,25 @@ export  interface IncomeTSX {
     amount?: number,
     sourceOfIncome?: string,
     key?: any,
+    idProps: string;
     userId?: string
 
   }
 export  interface IncomeProps{
-    income: IncomeTSX
+    income: IncomeTSX,
+    idProps: string
   }
   export  interface ExspensesTSX {
     amount?: number,
     exspenses?: string,
     key?: any,
-    id: string;
+    idProps: string;
     userId?:string
 
   }
 export  interface ExspenseProps{
     exspenses: ExspensesTSX
+     idProps: string;
 
   }
 export interface IncomeSum{

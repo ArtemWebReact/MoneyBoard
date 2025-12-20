@@ -7,6 +7,6 @@ interface MoneyContextType {
   setSumExspense: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const MoneyContext = createContext<MoneyContextType | undefined>(undefined);
+export const MoneyContext = createContext<MoneyContextType | null>(null);
 
 export default MoneyContext

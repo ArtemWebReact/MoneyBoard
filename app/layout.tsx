@@ -1,8 +1,13 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from './basic/Header'
 import Footer from './basic/Footer'
+import './globals.css'
+import MoneyContext from "./context";
+import Navigation from "./basic/Navigation";
+import LayoultClient from "./client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,16 +30,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+      <LayoultClient>
     <html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin = "" />
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet" />
+</head>
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        
       >
+
       <Header></Header>
+   <Navigation></Navigation>
       <main className="min-h-screen min-w-full">
         {children}
         </main>
         <Footer></Footer>
       </body>
     </html>
+</LayoultClient>
   );
 }
