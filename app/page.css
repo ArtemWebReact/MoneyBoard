@@ -92,6 +92,7 @@ align-items: stretch; /* всі картки однакової висоти */
 }
 .shadowHeader:hover{
       box-shadow: 0 0 50px 10px yellow;
+      
 }
 .shadowHeader2:hover{
       box-shadow: 0 0 50px 10px rgb(255, 0, 0);

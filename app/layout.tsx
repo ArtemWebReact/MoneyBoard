@@ -31,15 +31,14 @@ export default function RootLayout({
 }>) {
   return (
       <LayoultClient>
-    <html lang="en">
+    <html lang="en"  className="w-full min-w-full max-w-full">
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin = "" />
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet" />
 </head>
 
-      <body
-        
+      <body className="w-full min-w-full max-w-full"
       >
 
       <Header></Header>
