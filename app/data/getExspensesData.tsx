@@ -82,7 +82,6 @@ console.error(err)
     <>
    
 <div className="max-h-full ">
-  {visible2}
   {dataExspensesAmount.map((el, index)=>(
     
    <ExspensesProps key = {index} exspenses = {el} idProps = {el.idProps}/>
