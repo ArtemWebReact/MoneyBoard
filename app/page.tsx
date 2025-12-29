@@ -16,14 +16,7 @@ export default function Home() {
    let array = [] 
    
   useEffect(()=>{
-   //paralax
-   const third = document.querySelector('#third')
-   if(!third) return 
-   window.addEventListener('wheel', (e)=>{
-   array.push(e.deltaY)
-   setTop(array.reduce((acc, cur)=>(acc+cur)))
-   })
-   //paralax
+
    const animeObserver = new IntersectionObserver((entries)=>{
       entries.forEach((entry)=>{
          if(entry.isIntersecting && !entry.target.classList.contains("animated")){
@@ -153,15 +146,9 @@ setInterval(
  setScrollY((prev)=>(prev+e.deltaY))
     }
 
-  if(!first) return 
-  window.addEventListener('wheel', listenClose)
- console.log(scrollY)
- return ()=>{
-  window.removeEventListener('wheel', listenClose)
- }
  
   }, [])
-  if(!window) return
+
   return (
    <>
    <section id = "first" className = {` bg-[url('/images/section1.png')]  bg-cover bg-center min-w-full min-h-screen w-full h-screen max-w-full max-h-screen  flex justify-around items-center  sm-flex-col  a  flex justify-center items-center flex-col gap-10`}>
