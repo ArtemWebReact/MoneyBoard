@@ -1,0 +1,144 @@
+
+.name2{
+ color: blue
+ 
+}
+.hello0{
+    width: 0;
+    transition: 1s ease-in-out;
+      height: 2px;
+
+}
+.hello1{
+    width: 90%;
+     transition: 1s ease-in-out;
+       height: 2px;
+      
+}
+.container{
+      pointer-events: none;
+background-image:
+linear-gradient(to right, rgba(255, 166, 0, 0.363) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(255, 166, 0, 0.363) 1px, transparent 1px);
+background-size: 10rem 10rem;
+}
+.container3{
+      pointer-events: none;
+background-image:
+linear-gradient(to right, rgba(0, 255, 34, 0.363) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(0, 255, 34, 0.363) 1px, transparent 1px);
+background-size: 10rem 10rem;
+}
+.container4{
+      pointer-events: none;
+background-image:
+linear-gradient(to right, rgba(204, 0, 255, 0.363) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(204, 0, 255, 0.363)1px, transparent 1px);
+background-size: 10rem 10rem;
+}
+.container2{
+      pointer-events: none;
+background-image:
+linear-gradient(to right, rgba(79, 120, 255, 0.363) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(79, 120, 255, 0.363) 1px, transparent 1px);
+background-size: 10rem 10rem;
+}
+.box{
+    border: solid 2px rgb(255, 230, 0);
+    opacity: 0.3;
+}
+
+#hover:hover{
+       transition:  1s ease-in-out;
+    background-color: yellow;
+    color:orange;
+    box-shadow: 0 0 20px 10px yellow;
+
+}
+
+.visible{
+    position: relative;
+    top:0;
+    left:0;
+    opacity: 1;
+      transition:  0.5s ease-in;
+}
+.invisible{
+        position: relative;
+    top:10;
+    left:0;
+    opacity: 0;
+      transition:  0.5s ease-in;
+}
+#cards{
+display: grid; 
+width: 90%;
+grid-template-columns: repeat(2, minmax(90px, 0.7fr)); 
+grid-auto-rows: minmax(90px, 1fr);
+gap: 2rem;
+justify-content: center; 
+align-items: stretch; /* всі картки однакової висоти */
+}
+.card {
+  font-size: clamp(0.7rem, 2vw, 1.5rem);
+}
+.gridMoney{
+     display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap:3rem;
+      margin: 3rem;
+}
+.shadowHeader:hover{
+      box-shadow: 0 0 50px 10px yellow;
+}
+.shadowHeader2:hover{
+      box-shadow: 0 0 50px 10px rgb(255, 0, 0);
+}
+.shadowHeader3:hover{
+      box-shadow: 0 0 50px 10px rgb(102, 255, 0);
+}
+.shadowHeader4:hover{
+      box-shadow: 0 0 50px 10px rgb(0, 89, 255);
+}
+.afterMe::after{
+       
+      position: absolute;
+      top:0;
+      left:0;
+      content:"";
+      background-color: whitesmoke;
+      height: 0%;
+      width: 2px;
+}
+.spanNav::before{
+
+      position: absolute;
+      top:100%;
+      left:0;
+      content:"";
+      background-color: whitesmoke;
+      height: 2px;
+      width: 0%;
+}
+.afterMe:hover::after{
+            transition:  0.5s ease-in-out;
+      position: absolute;
+      top:0;
+      left:0;
+      content:"";
+      background-color: whitesmoke;
+      height: 100%;
+      width: 2px;
+}
+.spanNav:hover::before{
+      transition:  0.5s ease-in-out;
+      position: absolute;
+      top:100%;
+      left:0;
+      content:"";
+      background-color: whitesmoke;
+      height: 2px;
+      width: 100%;
+}

@@ -21,7 +21,7 @@ const context = useContext(MoneyContext)
 const current =  auth.currentUser
 
 if(!context) return 0 
-const { sumExspense, setSumExspense } = context
+const { sumExspense, setSumExspense, visible2 } = context
   const exspensesCollection = collection(db, 'exspenses')
   const deleteData = async(id:string) =>{
   try{
@@ -82,6 +82,7 @@ console.error(err)
     <>
    
 <div className="max-h-full ">
+  {visible2}
   {dataExspensesAmount.map((el, index)=>(
     
    <ExspensesProps key = {index} exspenses = {el} idProps = {el.idProps}/>

@@ -16,11 +16,13 @@ export default function LayoultClient({
 }>) {
       const [sumIncome , setSumIncome] = useState<number>(0)
     const [sumExspense, setSumExspense] = useState<number>(0)
+    const [visible2, setVisible2] = useState<number>(0)
         useEffect(()=>{
+          console.log(visible2)
         return 
-        }, [sumIncome, sumExspense])
+        }, [sumIncome, sumExspense, visible2])
   return (
-       <MoneyContext.Provider value = {{sumIncome, setSumIncome, sumExspense, setSumExspense}}>
+       <MoneyContext.Provider value = {{sumIncome, setSumIncome, sumExspense, setSumExspense, visible2, setVisible2}}>
     
   
   

@@ -18,7 +18,7 @@ export default function ExspensesProps({exspenses}: ExspenseProps){
     }
     return(
         <>
-        <div className={`bg-[#030033] ${cyberFont2.className} min-h-[90%] h-[90%] max-h-[90%] w-auto flex justify-center border-white border-1 items-center flex-col gap-1 m-1`}>
+        <div className={`bg-[#030033] ${cyberFont2.className} min-h-[90%] h-[90%] max-h-[90%]  w-auto flex justify-center border-white border-1 items-center flex-col gap-1 m-1`}>
         <p key = {exspenses.key}  className="text-white">{exspenses.amount}</p>
          <p key = {exspenses.key} className="text-white">{exspenses['exspenses']}</p>
             <button className = "text-white" onClick={()=>{deleteData(exspenses.idProps)}}>X</button>

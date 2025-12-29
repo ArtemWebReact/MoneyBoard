@@ -32,28 +32,56 @@ const [password, setPassword] = useState('')
   }
     return(
         <>
-        <section className="flex">
-    
-        
-        <div className="z-[100] w-[50%] h-screen bg-[#2b165a] flex justify-center items-center flex-col gap-6" >
-            <div className=" w-[50%] h-[50%] bg-[#7354bd] flex justify-center items-center flex-col gap-6 rounded-xl " >
-                <h1 className={`text-white  text-[1.5rem] ${cyberFont3.className}`}>Register</h1>
-                <input placeholder="email" className = "bg-white rounded-xl w-[60%] h-[10%]" onChange={(e)=>{
-            setEmail(e.target.value)
-                }}></input>
-                <input placeholder = "password" className = "bg-white rounded-xl w-[60%] h-[10%]" onChange={(e)=>{
-            setPassword(e.target.value)
-                }}></input>
-          
-                <button  className = {`bg-[#030033] rounded-xl w-[30%] h-[10%] text-[white] hover:text-[white] hover:bg-[#2b165a] transition delay-100 duration-300 ease-in-out  ${cyberFont.className}`} onClick={register}>Sign up</button>
-                  <p className={`text-white ${cyberFont.className}`}>or</p>
-                <button className={`text-white ${cyberFont.className}`} onClick={googleRegisterFunction}>Sign up with google</button>
-                </div>
-                </div>
-                    <video autoPlay loop muted className=" object-cover w-[60%] h-screen top-0 left-0">
-            <source src = '/video/videoAuth.mp4' type = "video/mp4" ></source>
-        </video>
-                </section>
+<section className="flex flex-col lg:flex-row w-full h-screen">
+  {/* Відео */}
+  <video
+    autoPlay
+    loop
+    muted
+    className="object-cover w-full lg:w-1/2 h-[40vh] lg:h-screen"
+  >
+    <source src="/video/videoAuth.mp4" type="video/mp4" />
+  </video>
+
+  {/* Форма */}
+  <div className="z-[100] w-full lg:w-1/2 h-[60vh] lg:h-screen bg-[#2b165a] flex justify-center items-center">
+    <div className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[50%] bg-[#7354bd] flex justify-center items-center flex-col gap-6 rounded-xl p-6">
+      <h1 className={`text-white text-xl md:text-2xl ${cyberFont3.className}`}>
+        Register
+      </h1>
+
+      <input
+        placeholder="Email"
+        className="bg-white rounded-xl w-full h-10 px-3"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <input
+        placeholder="Password"
+        type="password"
+        className="bg-white rounded-xl w-full h-10 px-3"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <button
+        className={`bg-[#030033] rounded-xl w-full h-10 text-white hover:bg-[#2b165a] transition duration-300 ${cyberFont.className}`}
+        onClick={register}
+      >
+        Sign up
+      </button>
+
+      <p className={`text-white ${cyberFont.className}`}>or</p>
+
+      <button
+        className={`text-white ${cyberFont.className} w-full h-10 border border-white rounded-xl hover:bg-[#2b165a] transition duration-300`}
+        onClick={googleRegisterFunction}
+      >
+        Sign up with Google
+      </button>
+    </div>
+  </div>
+</section>
+
         </>
     )
 }
